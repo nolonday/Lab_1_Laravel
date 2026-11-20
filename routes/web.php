@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('pages.home');
+})->name('home');
+
+Route::get('/about', function () {
+    return view('pages.about');
+})->name('about');
+
+Route::get('/contacts', function () {
+
+    $contacts = [
+        [
+            'name' => 'Соловьев Даниил Дмитриевич',
+            'position' => 'Студент, группа 257-321',
+            'email' => 'student@example.com',
+            'phone' => '+7 (900) 000-00-00',
+        ],
+        [
+            'name' => 'Учебная часть',
+            'position' => 'По учебным вопросам',
+            'email' => 'study@example.com',
+            'phone' => '+7 (900) 111-11-11',
+        ],
+    ];
+
+    return view('pages.contacts', [
+        'contacts' => $contacts
+    ]);
+
+})->name('contacts');
